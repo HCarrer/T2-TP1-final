@@ -1,0 +1,64 @@
+\hypertarget{class_senha}{}\doxysection{Senha Class Reference}
+\label{class_senha}\index{Senha@{Senha}}
+
+
+Codigo destinado a identificar uma \mbox{\hyperlink{class_senha}{Senha}}.  
+
+
+
+
+{\ttfamily \#include $<$dominios.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_senha_ae9cee5952a6a602a71849b593dd25c99}{set\+Senha}} (std\+::string senha)  throw (std\+::invalid\+\_\+argument)
+\begin{DoxyCompactList}\small\item\em Set basico da classe \mbox{\hyperlink{class_senha}{Senha}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_senha_a766f97ce6f851cd1c3939f270351c2d5}{get\+Senha}} ()
+\begin{DoxyCompactList}\small\item\em Get padrao. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Codigo destinado a identificar uma \mbox{\hyperlink{class_senha}{Senha}}. 
+
+A validacao deste codigo apenas valida codigos no formato X\+X\+X\+XX onde X pode ser ser letra, digito, \#, \$, \% ou \&. Deve-\/se haver pelo menos uma letra e um digito. Nao se pode haver caracteres repetidos. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_senha_a766f97ce6f851cd1c3939f270351c2d5}\label{class_senha_a766f97ce6f851cd1c3939f270351c2d5}} 
+\index{Senha@{Senha}!getSenha@{getSenha}}
+\index{getSenha@{getSenha}!Senha@{Senha}}
+\doxysubsubsection{\texorpdfstring{getSenha()}{getSenha()}}
+{\footnotesize\ttfamily std\+::string Senha\+::get\+Senha (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get padrao. 
+
+\begin{DoxyReturn}{Returns}
+string Retorna a senha. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_senha_ae9cee5952a6a602a71849b593dd25c99}\label{class_senha_ae9cee5952a6a602a71849b593dd25c99}} 
+\index{Senha@{Senha}!setSenha@{setSenha}}
+\index{setSenha@{setSenha}!Senha@{Senha}}
+\doxysubsubsection{\texorpdfstring{setSenha()}{setSenha()}}
+{\footnotesize\ttfamily void Senha\+::set\+Senha (\begin{DoxyParamCaption}\item[{std\+::string}]{senha }\end{DoxyParamCaption}) throw ( std\+::invalid\+\_\+argument) }
+
+
+
+Set basico da classe \mbox{\hyperlink{class_senha}{Senha}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & a ser inserida no objeto.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Caso a validacao de errado (Cada classe possui a sua) lanca um objeto explicando o erro. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{dominios_8h}{dominios.\+h}}\end{DoxyCompactItemize}

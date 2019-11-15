@@ -1,0 +1,210 @@
+#include "controller.h"
+
+Controller::Controller()
+{
+    initscr();
+    cbreak();
+}
+
+Controller::~Controller()
+{
+    endwin();
+}
+
+
+void Controller::login(bool isLogged, char* email = "") {
+    if(isLogged) {
+        this->isLogged = isLogged;
+        this->email = email;
+    }
+    else {
+        this->isLogged = isLogged;
+        this->email = "";  //Reseta o email armazenado
+    }
+}
+
+std::string Controller::getEmail() {
+    if(isLogged) {
+        return email;
+    }
+    else {
+        return "";
+    }
+}
+
+void Controller::executar() {
+    //MENU PRINCIPAL
+    //Opcoes nao logadas
+    std::string nl_opcoes[4] = {"Ver Caronas", "Login", "Cadastrar", "Sair"};
+    //Opcoes logadas
+    std::string l_opcoes[5] = {"Ver Perfil", "Cadastrar Carona",
+                              "Ver Caronas", "Fazer Reserva", "Logout"};
+
+
+    std::string nome = "Car++";
+
+    int y_max, x_max;
+    int nl_wy_max, nl_wx_max;   //not logged y x
+    int l_wy_max, l_wx_max;   //logged y x
+
+    getmaxyx(stdscr, y_max, x_max);
+
+    static WINDOW* not_log_win = newwin(10, 30, y_max/2 - 5, x_max/2 - 15);
+    static WINDOW* logged_win = newwin(10, 30, y_max/2 - 5, x_max/2 - 15);
+
+    getmaxyx(not_log_win, nl_wy_max, nl_wx_max);
+    getmaxyx(logged_win, l_wy_max, l_wx_max);
+
+    cbreak();
+    noecho();
+    curs_set(0);
+    keypad(not_log_win, true);
+    keypad(logged_win, true);
+
+    int choice;
+    int highlight = 0;
+
+    box(not_log_win, 0, 0);
+    mvwprintw(not_log_win, 0, nl_wx_max/2 - nome.size()/2, nome.c_str());
+    wrefresh(not_log_win);
+
+    while(true) {
+        if(!isLogged) {
+            clear();
+            refresh();
+            box(not_log_win, 0, 0);
+            mvwprintw(not_log_win, 0, nl_wx_max/2-nome.size()/2, nome.c_str());
+            wrefresh(not_log_win);
+        }
+        if (isLogged) {
+            for (int i = 0; i < 5; i++) {
+                if (i == highlight) {
+                    wattron(logged_win, A_REVERSE);
+                }
+                mvwprintw(logged_win, i + 3, l_wx_max / 2 - l_opcoes[i].size()/2, l_opcoes[i].c_str());
+                wattroff(logged_win, A_REVERSE);
+            }
+            choice = wgetch(logged_win);
+
+            switch (choice) {
+                case KEY_UP:
+                    highlight--;
+                    if (highlight == -1) {
+                        highlight = 0;
+                    }
+                    break;
+                case KEY_DOWN:
+                    highlight++;
+                    if (highlight == 5) {
+                        highlight = 4;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            if(choice==10) {
+                switch(highlight) {
+                    case 0: //Ver perfil
+                        mau->verPerfil();
+                        box(logged_win, 0, 0);
+                        mvwprintw(logged_win, 0, l_wx_max/2 - email.size()/2, email.c_str());
+                        wrefresh(logged_win);
+                        break;
+                    case 1: // Cadastrar carona
+                        mac->criarCarona();
+                        box(logged_win, 0, 0);
+                        mvwprintw(logged_win, 0, l_wx_max/2 - email.size()/2, email.c_str());
+                        wrefresh(logged_win);
+                        break;
+                    case 2: // Ver caronas
+                        mac->executar();
+                        box(logged_win, 0, 0);
+                        mvwprintw(logged_win, 0, l_wx_max/2 - email.size()/2, email.c_str());
+                        wrefresh(logged_win);
+                        break;
+                    case 3: // Fazer reserva
+                        mar->executar();
+                        box(logged_win, 0, 0);
+                        mvwprintw(logged_win, 0, l_wx_max/2 - email.size()/2, email.c_str());
+                        wrefresh(logged_win);
+                        break;
+                    default: // logout
+                        login(false);
+                        wclear(logged_win);
+                        wrefresh(logged_win);
+                        box(not_log_win, 0, 0);
+                        mvwprintw(not_log_win, 0, nl_wx_max/2-nome.size()/2, nome.c_str());
+                        wrefresh(not_log_win);
+                        // Voltando o Highlight para o primeiro elemento
+                        highlight = 0;
+                        break;
+                }
+            }
+
+        }
+        else {
+            for (int i = 0; i < 4; i++) {
+                if (i == highlight) {
+                    wattron(not_log_win, A_REVERSE);
+                }
+                mvwprintw(not_log_win, i + 3, nl_wx_max / 2 - nl_opcoes[i].size()/2, nl_opcoes[i].c_str());
+                wattroff(not_log_win, A_REVERSE);
+            }
+            choice = wgetch(not_log_win);
+
+            switch (choice) {
+                case KEY_UP:
+                    highlight--;
+                    if (highlight == -1) {
+                        highlight = 0;
+                    }
+                    break;
+                case KEY_DOWN:
+                    highlight++;
+                    if (highlight == 4) {
+                        highlight = 3;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            if (choice == 10) {
+                switch (highlight) {
+                    case 0:  // Ver caronas
+                        mac->executar();
+                        box(not_log_win, 0, 0);
+                        mvwprintw(not_log_win, 0, nl_wx_max/2-nome.size()/2, nome.c_str());
+                        wrefresh(not_log_win);
+                        break;
+                    case 1:  // Login
+                        maa->executar();
+                        if (isLogged) {
+                            box(logged_win, 0, 0);
+                            mvwprintw(logged_win, 0, l_wx_max/2 - email.size()/2, email.c_str());
+                            wrefresh(logged_win);
+                            // Voltando o Highlight para o primeiro elemento
+                            highlight = 0;
+                            break;
+                        }
+                        else {
+                            box(not_log_win, 0, 0);
+                            mvwprintw(not_log_win, 0, nl_wx_max/2-nome.size()/2, nome.c_str());
+                            wrefresh(not_log_win);
+                            break;
+                        }
+                    case 2:  // Cadastrar
+                        mau->executar();
+                        box(not_log_win, 0, 0);
+                        mvwprintw(not_log_win, 0, nl_wx_max/2-nome.size()/2, nome.c_str());
+                        wrefresh(not_log_win);
+                        break;
+                    default:
+                        return;
+                        break;
+                }
+            }
+        }
+    }
+}

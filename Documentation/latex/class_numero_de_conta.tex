@@ -1,0 +1,64 @@
+\hypertarget{class_numero_de_conta}{}\doxysection{Numero\+De\+Conta Class Reference}
+\label{class_numero_de_conta}\index{NumeroDeConta@{NumeroDeConta}}
+
+
+Codigo destinado a identificar um \mbox{\hyperlink{class_numero_de_conta}{Numero\+De\+Conta}}.  
+
+
+
+
+{\ttfamily \#include $<$dominios.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_numero_de_conta_a578f22309b6cff9249dfb1b8d4c1cf98}{set\+Numero\+De\+Conta}} (std\+::string numero\+De\+Conta)  throw (std\+::invalid\+\_\+argument)
+\begin{DoxyCompactList}\small\item\em Set basico da classe \mbox{\hyperlink{class_numero_de_conta}{Numero\+De\+Conta}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_numero_de_conta_a2ba7a5e2173fb6f06539d519d6281490}{get\+Numero\+De\+Conta}} ()
+\begin{DoxyCompactList}\small\item\em Get padrao. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Codigo destinado a identificar um \mbox{\hyperlink{class_numero_de_conta}{Numero\+De\+Conta}}. 
+
+A validacao deste codigo apenas valida codigos no formato X\+X\+X\+X\+X\+X-\/Y, onde X e um digito de 0 a 9 e Y e um digito verificador calculado por meio do algoritmo de Luhn. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_numero_de_conta_a2ba7a5e2173fb6f06539d519d6281490}\label{class_numero_de_conta_a2ba7a5e2173fb6f06539d519d6281490}} 
+\index{NumeroDeConta@{NumeroDeConta}!getNumeroDeConta@{getNumeroDeConta}}
+\index{getNumeroDeConta@{getNumeroDeConta}!NumeroDeConta@{NumeroDeConta}}
+\doxysubsubsection{\texorpdfstring{getNumeroDeConta()}{getNumeroDeConta()}}
+{\footnotesize\ttfamily std\+::string Numero\+De\+Conta\+::get\+Numero\+De\+Conta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get padrao. 
+
+\begin{DoxyReturn}{Returns}
+string Retorna o numero\+De\+Conta. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_numero_de_conta_a578f22309b6cff9249dfb1b8d4c1cf98}\label{class_numero_de_conta_a578f22309b6cff9249dfb1b8d4c1cf98}} 
+\index{NumeroDeConta@{NumeroDeConta}!setNumeroDeConta@{setNumeroDeConta}}
+\index{setNumeroDeConta@{setNumeroDeConta}!NumeroDeConta@{NumeroDeConta}}
+\doxysubsubsection{\texorpdfstring{setNumeroDeConta()}{setNumeroDeConta()}}
+{\footnotesize\ttfamily void Numero\+De\+Conta\+::set\+Numero\+De\+Conta (\begin{DoxyParamCaption}\item[{std\+::string}]{numero\+De\+Conta }\end{DoxyParamCaption}) throw ( std\+::invalid\+\_\+argument) }
+
+
+
+Set basico da classe \mbox{\hyperlink{class_numero_de_conta}{Numero\+De\+Conta}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & a ser inserido no objeto.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Caso a validacao de errado (Cada classe possui a sua) lanca um objeto explicando o erro. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{dominios_8h}{dominios.\+h}}\end{DoxyCompactItemize}

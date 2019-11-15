@@ -1,0 +1,64 @@
+\hypertarget{class_telefone}{}\doxysection{Telefone Class Reference}
+\label{class_telefone}\index{Telefone@{Telefone}}
+
+
+Codigo destinado a identificar um \mbox{\hyperlink{class_telefone}{Telefone}}.  
+
+
+
+
+{\ttfamily \#include $<$dominios.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_telefone_a2edee9723aabce6d9bdc8860d52574c2}{set\+Telefone}} (std\+::string telefone)  throw (std\+::invalid\+\_\+argument)
+\begin{DoxyCompactList}\small\item\em Set basico da classe \mbox{\hyperlink{class_telefone}{Telefone}}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_telefone_a366cd131648f700bcdabf33496e5eb9e}{get\+Telefone}} ()
+\begin{DoxyCompactList}\small\item\em Get padrao. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Codigo destinado a identificar um \mbox{\hyperlink{class_telefone}{Telefone}}. 
+
+A validacao deste codigo apenas valida numeros de telefone no formato X\+X-\/\+Y\+Y-\/\+Z\+Z\+Z\+Z\+Z\+Z\+Z\+ZZ, onde X, Y e Z sao digitos de 0 a 9. Tanto XX, quanto YY, quanto Z\+Z\+Z\+Z\+Z\+Z\+Z\+ZZ nao podem ser totalmente preenchidos por \textquotesingle{}0\textquotesingle{}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_telefone_a366cd131648f700bcdabf33496e5eb9e}\label{class_telefone_a366cd131648f700bcdabf33496e5eb9e}} 
+\index{Telefone@{Telefone}!getTelefone@{getTelefone}}
+\index{getTelefone@{getTelefone}!Telefone@{Telefone}}
+\doxysubsubsection{\texorpdfstring{getTelefone()}{getTelefone()}}
+{\footnotesize\ttfamily std\+::string Telefone\+::get\+Telefone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get padrao. 
+
+\begin{DoxyReturn}{Returns}
+string Retorna o telefone. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_telefone_a2edee9723aabce6d9bdc8860d52574c2}\label{class_telefone_a2edee9723aabce6d9bdc8860d52574c2}} 
+\index{Telefone@{Telefone}!setTelefone@{setTelefone}}
+\index{setTelefone@{setTelefone}!Telefone@{Telefone}}
+\doxysubsubsection{\texorpdfstring{setTelefone()}{setTelefone()}}
+{\footnotesize\ttfamily void Telefone\+::set\+Telefone (\begin{DoxyParamCaption}\item[{std\+::string}]{telefone }\end{DoxyParamCaption}) throw ( std\+::invalid\+\_\+argument) }
+
+
+
+Set basico da classe \mbox{\hyperlink{class_telefone}{Telefone}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & a ser inserida no objeto.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Caso a validacao de errado (Cada classe possui a sua) lanca um objeto explicando o erro. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{dominios_8h}{dominios.\+h}}\end{DoxyCompactItemize}
